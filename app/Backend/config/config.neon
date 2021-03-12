@@ -1,0 +1,35 @@
+
+
+#
+# Konfigurační soubor pro Backend.
+#
+parameters:
+
+
+# Nastavení služeb pro Backend.
+services:
+	# Nastavení služby pro opravní uživatelů v rámci Backend (ACL).
+	security.authorizator:
+		setup:
+			# Zdroje Backend.
+			- addResource(Backend:Administration)
+			- addResource(Backend:Article)
+			- addResource(Backend:Order)
+
+
+
+			# Pravidla přístupu.
+
+			- allow(member, Backend:Administration, login)
+			- allow(member, Backend:Administration, register)
+			- allow(member, Backend:Article, default)
+			- allow(member, Backend:Article, list)
+			- allow(member, Backend:Administration, default)
+			- allow(member, Backend:Administration, logout)
+
+	# Definice vlastních služeb dále přístupných pomocí DI.
+	- App\Backend\Model\ArticleManager
+	- App\Backend\Model\OrderManager
+
+	# Předání nastavení při vytváření služeb presenterů.
+

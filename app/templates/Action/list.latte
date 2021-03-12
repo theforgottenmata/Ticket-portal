@@ -1,0 +1,88 @@
+{block title}Seznam akcí{/block}
+
+{block content}
+{foreach $actions as $action}
+
+
+        <script>
+            const second = 1000,
+                minute = second * 60,
+                hour = minute * 60,
+                day = hour * 24;
+            let countDown = new Date({$action->date}).getTime(),
+                x = setInterval(function() {
+                    let now = new Date().getTime(),
+                        distance = countDown - now;
+
+                    document.getElementById('days').innerText = Math.floor(distance / (day)),
+                        document.getElementById('hours').innerText = Math.floor((distance % (day)) / (hour)),
+                        document.getElementById('minutes').innerText = Math.floor((distance % (hour)) / (minute)),
+                        document.getElementById('seconds').innerText = Math.floor((distance % (minute)) / second);
+
+
+
+                }, second)
+        </script>
+
+{/foreach}
+
+    <section class="countdown">
+
+    <h1 id="head">Nejbližší akce</h1>
+
+    <ul>
+        <li><span id="days"></span>Dní</li>
+        <li><span id="hours"></span>Hodin</li>
+        <li><span id="minutes"></span>Minut</li>
+        <li><span id="seconds"></span>Vteřin</li>
+    </ul>
+
+</section>
+
+    <div class="tickets" style="margin-bottom: 3vw"  >
+
+
+        <tr n:foreach="$actions as $action"  >
+
+
+
+            <div data-aos="fade-up">
+                    <div class="how-container" >
+                        <div class="left-container">
+                            <div class="left-content">
+                                <img class="img" src="../../../www/{$action->img}">
+                            </div>
+                        </div>
+                        <div class="right-container">
+                            <div class="right-content">
+                                    <h3>{$action->name}</h3>
+                                {if $action->count < 1}
+
+                                    <p style="color: red">Není skladem</p>
+                                    {else}
+                                    <p style="color: #1e7e34">Skladem > {$action->count} ks</p>
+                                {/if}
+                                    <h3>{$action->date|date:'%d.%m.%Y'} | {$action->time}</h3>
+
+                                <p class="db_content" >{$action->content}</p>
+
+
+
+                                    <div class="button_position">
+                                        <p style="text-align: center;padding: 10px">{$action->price}Kč</p>
+
+                                        <a n:href="Action: $action->name">
+                                            <button type="button" class="myButton">Detail</button>
+
+                                        </a>
+                                    </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+        </tr>
+
+    </div>
+{/block}

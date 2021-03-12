@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>Přihlášení</title>
+    <link rel="stylesheet" href="{$basePath}/www/css/index.css" type="text/css">
+    <link rel="stylesheet" href="/www/css/fontawesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <style>
+        .neco{
+            height: 200px;
+            width: 400px;
+            background-color: transparent;
+            padding: 50px;
+            position: fixed;
+            top: 20%;
+            left: 35%;
+            margin-top: -100px;
+            margin-left: -30px;
+        }
+
+        .backIcon{
+            padding: 0px;
+        }
+        .backIcon i{
+            font-size: 30px;
+            text-decoration: none;
+            color: #0b0b0b;
+            padding: 30px;
+        }
+        .singin{
+            width: 250px;
+            display: inline-block;
+
+        }
+        .singin form{
+            width: 100%;
+        }
+        .singin form input {
+
+            width: 100%;
+            margin-top: 1em;
+
+        }
+
+
+
+    </style>
+</head>
+
+
+<body style="    background-color: #f4f4f4;">
+
+<div class="backIcon">
+    <a n:href=:Homepage:>
+    <i class="fa fa-caret-left"></i>
+    </a>
+</div>
+
+
+
+
+<div style="text-align: center">
+{form loginForm}
+
+    <div style="background-color: salmon; padding: 1px;" n:if="$form->ownErrors" n:foreach="$form->ownErrors as $error">
+        <p style="text-align: center">{$error}</p>
+    </div>
+    <p style="font-size: 20px">Přihlášení uživatele</p>
+
+
+
+<div class="singin">
+
+    <form n:name=loginForm id="form"  >
+            <input  style="width: 90%"  n:name=username type="text"  placeholder="Jméno">
+            <input style="width: 90%"  n:name=password type="password"  placeholder="Heslo">
+
+            <input n:name=login type="submit" value="Přihlásit" id="input-submit">
+    </form>
+</div>
+
+
+{/form}
+</div>
+
+
+
+
+
+
+
+</body>
+</html>
+
+

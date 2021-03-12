@@ -1,0 +1,88 @@
+
+{block title}Objednávky{/block}
+
+
+
+
+{block content}
+
+    <style>
+        #customers {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 90%;
+            margin-top: 40px;
+            margin-left: 5%;
+            margin-right: 5%;
+            margin-bottom: 10%;
+        }
+
+        #customers td, #customers th {
+            border: 1px solid #b1b1b1;
+            padding: 8px;
+        }
+
+
+
+        #customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+
+    <h1 style="text-align: center">Seznam objednávek</h1>
+
+
+
+    <table id="customers" >
+        <tr>
+            <th>Id</th>
+            <th>Id_akce</th>
+            <th>Datum</th>
+            <th>Jméno</th>
+            <th>Příjmení</th>
+            <th>Email</th>
+            <th>Tel. číslo</th>
+            <th>Adresa</th>
+            <th>Město</th>
+            <th>PSČ</th>
+            <th>Země</th>
+            <th>Poznámka</th>
+            <th>Částka</th>
+
+
+        </tr>
+
+
+
+        <tr n:foreach="$orders as $order">
+            <td>{$order->id}</td>
+            <td>{$order->order_article}</td>
+            <td>{$order->date}</td>
+            <td>{$order->name}</td>
+            <td>{$order->surname}</td>
+            <td>{$order->mail}</td>
+            <td>{$order->phone}
+            <td>{$order->address}</td>
+            <td>{$order->city}</td>
+            <td>{$order->zip_code}</td>
+            <td>{$order->country}</td>
+            <td>{$order->message}</td>
+            <td>{$order->price}</td>
+
+
+
+
+        </tr>
+
+    </table>
+
+
+{/block}
+
+
+
+

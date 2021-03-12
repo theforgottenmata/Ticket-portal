@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+	<title>Administrace: {include title}</title>
+
+	<meta charset="utf-8">
+
+
+	{block css}
+
+		<link rel="shortcut icon" href="/www/favicon.ico" type="image/x-icon">
+		<link rel="icon" href="/www/favicon.ico" type="image/x-icon">
+		<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="{$basePath}/www/css/administrace.css">
+	{/block}
+</head>
+<body>
+
+	<p n:foreach="$flashes as $flash" class="message">{$flash->message}</p>
+
+
+
+		{* Výpis flash zpráv. *}
+
+
+	<div class="sidebar">
+		<a n:href=:Backend:Administration:>Úvod</a>
+		<a n:href=:Backend:Order:list>Seznam objednavek</a>
+		<a n:href=:Backend:Article:list>Seznam akcí</a>
+
+		{if $user->isInRole('admin')}
+			<a n:href=Article:edit>Přidat akci</a>
+		{/if}
+		{if $user->isInRole('admin')}
+			<a n:href=:Backend:Administration:register>Přidat uživatele</a>
+		{/if}
+			<a class="logout" n:href=:Backend:Administration:logout>Odhlásit</a>
+
+	</div>
+
+
+
+
+		<article class="content" >
+			<div style="margin-top: 100px">
+				<h1>{include content}</h1>
+			</div>
+		</article>
+
+
+
+		{block scripts}
+			<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+			<script src="{$basePath}/js/main.js"></script>
+		{/block}
+	</body>
+</html>

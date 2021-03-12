@@ -1,0 +1,58 @@
+
+{block title}Kontaktujte nás{/block}
+
+
+{block content}
+
+
+
+
+<div style="padding: 50px; margin-top: 100px; text-align: center">
+    <p  style="font-size: 40px; color: black">Kontaktuj nás</p>
+    <hr style="width: 300px; border-bottom: 1px solid black">
+</div>
+
+<form n:name=contactForm class=form >
+    <div class="errors" style="background-color: #bd4147" n:if="$form->hasErrors()">
+        <p style="padding: 15px; color: #FFFFFF" n:foreach="$form->errors as $error">{$error}</p>
+    </div>
+    <div class="half left cf">
+        <input  n:name=name type="text" id="input-name" placeholder="Jméno*">
+        <input n:name=email type="email" id="input-email" placeholder="Email*">
+
+        <select style="text-align-last:center;" n:name=reason ></select>
+
+
+    </div>
+    <div class="half right cf">
+
+        <textarea n:name=message type="textarea" minlength="15" id="input-message" placeholder="Zpráva*" ></textarea>
+    </div>
+    <input n:name=send type="submit" value="Odeslat" id="input-submit">
+</form>
+
+
+<div style="padding: 30px">
+<hr>
+</div>
+<div class="container contact" style="margin-bottom: 80px">
+    <h1 class="logoFont" style="text-align: center">Vip-tickets</h1>
+    <hr style="width: 300px; border-bottom: 1px solid black">
+
+    <p>Školní projekt</p>
+    <p>martin.slabek@educanet.cz</p>
+    <p>ticketprojekt2020@gmail.com</p>
+    <p>+420 777 278 776</p>
+
+
+
+</div>
+
+<style>
+    .contact p{
+        text-align: center;
+        list-style: none;
+        text-decoration: none;
+    }
+</style>
+

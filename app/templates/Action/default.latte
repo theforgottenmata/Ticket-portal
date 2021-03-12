@@ -1,0 +1,150 @@
+
+{block title}{$actions->name}{/block}
+
+
+{block content}
+
+    <style>
+
+        form input{
+            text-align: center;
+        }
+        .koupit .ods li{
+            list-style-type: square;
+            font-size: 20px;
+            text-indent: 80px;
+
+        }
+
+    </style>
+
+
+
+    <section class="home-slider owl-carousel" style="top: 0">
+        <div class="slider-item" style="background-image: url('/www/images/image2.jpg');">
+
+            <div class="container">
+                <div class="row slider-text align-items-center justify-content-center text-center">
+                    <div class="col-md-7 col-sm-12" style="opacity:">
+                        <p>Vítáme Vás na stránce</p>
+                        <h2 class="logoFont" style="color: white; font-size: 50px">VIP tickets</h2>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="slider-item" style="background-image: url('/www/images/image1.jpg');">
+            <div class="container">
+                <div class="row slider-text align-items-center">
+                    <div class="col-md-8 col-sm-12">
+                        <p>Jedinečný zážitek</p>
+                        <p>s nádherným výhledem</p>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+<!-- END slider -->
+
+<section class="container cta-overlap text-center" id="what">
+    <div class="text">
+        <h1>{$actions->name}</h1>
+        <p>{$actions->date|date:'%d.%m.%Y'}</p>
+        {if $actions->count < 1}
+
+            <p style="color: red; text-align: center">Není skladem</p>
+        {else}
+            <p style="text-align: center">Skladem > {$actions->count} ks</p>
+        {/if}
+
+    </div>
+</section>
+
+<ul class="flex-container center" style="margin-top: 15px" >
+    <img src="../../../www/{$actions->img}" class="img_akce" >
+
+
+</ul>
+
+
+<!-- -->
+
+<div class="container text-center info">
+    <h1 style="text-transform: uppercase">{$actions->name}</h1>
+    <hr style="width: 300px; border-bottom: 1px solid black">
+
+    <p style="word-wrap: break-word"> ‎  ‎​​​​  ‎‎  {$actions->content}</p>
+
+</div>
+
+
+<div class="container">
+    <ul class="koupit">
+        <p>
+            VIP SEZENÍ  | O2 arena Praha | {$actions->date|date:'%d.%m.%Y'} | {$actions->time}
+        </p>
+        <p>V ceně každé vstupenky :</p>
+        <div class="odsazeni ods">
+            <li>VIP Sezení v 2.patře</li>
+            <li>Neomezený teplý a studený catering</li>
+            <li>Neomezené alkoholické a nealkoholické nápoje</li>
+            <li>VIP vstup 2 hodiny před začátkem akce</li>
+            <li>VIP šatna</li>
+            <li>VIP garáž</li>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6 text-left">
+                    <p style="font-size: 25px; font-weight: 900; list-style-type: none;color: #000000">{$actions->price}Kč</p>
+                </div>
+
+
+                <div class="col-md-6 text-right">
+                                {if $actions->count < 1}
+
+                                    <button type="button" class="btn btn-primary" style="float: right">Není skladem</button>
+                                    {else}
+                                    <a n:href="Order: $actions->name">
+                                        <button type="button" class="btn btn-primary" style="float: right">Koupit</button>
+                                    </a>
+                                {/if}
+
+
+                </div>
+
+            </div>
+        </div>
+
+
+    </ul>
+
+</div>
+
+
+<div class="container" style="padding-bottom: 30px">
+    <h2 style="color:#000000; text-align: center">Univerzální plánek O2 areny</h2>
+
+    <div class="sezeni">
+        <img class="center" src='/www/images/plan.png' width="70%">
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+{/block}>

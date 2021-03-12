@@ -1,0 +1,43 @@
+
+
+{block title}Seznam{/block}
+
+{block content}
+
+<p style="text-align: center">Seznam akcí</p>
+<div style="padding: 50px">
+    <div class="item"><p>Datum</p></div>
+    <div class="item"><p>Název<b></b></p></div>
+    <div class="item"><p>Cena</p></div>
+
+    <tr n:foreach="$articles as $article" >
+
+        <a n:href="Article: $article->name">
+            <td>
+                    <div class="row">
+
+
+
+                        <div class="item"><p>{$article->date|date:'%d.%m.%Y'} | {$article->time}</p></div>
+                        <div class="item"><p><b>{$article->name}</b></p></div>
+                        <div class="item"><p>{$article->price}Kč</p></div>
+
+
+
+                        {if $user->isInRole('admin')}
+                            <a n:href="edit $article->name"  n:if="$user->loggedIn"><p style="float: left">Editovat</p></a>
+
+                            <a n:href="remove $article->name"  n:if="$user->loggedIn"><p style="float: right">Odstranit</p></a>
+                        {/if}
+
+                    </div>
+
+
+
+
+            </td>
+        </a>
+
+    </tr>
+
+</div>

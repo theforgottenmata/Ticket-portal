@@ -1,0 +1,72 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Potvrzení objednávky</title>
+    <style>
+        body {
+            background-color: #ffffff;
+        }
+        .body{
+            padding-left: 50px;
+            margin-right: 50px
+        }
+
+        .middle-content {
+            background-color: #2e63f1;
+            width: 100%;
+            display: block;
+
+        }
+        .middle-content h1{
+            text-align: center;
+            color: #ffffff;
+            font-size: 25px;
+            padding: 20px
+        }
+
+        .content p{
+            font-size: 15px;
+            color: #000000;
+            text-align: center;
+        }
+        .content a{
+            text-decoration: none;
+            font-weight: 900;
+            color: #2b93a8;
+
+        }
+        .info p{
+            text-align: left;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+
+
+
+<div class="middle-content">
+    <h1>Výzva k platbě</h1>
+</div>
+<div class="body">
+<p style="text-align: center; color: #ff8d1f; font-size: 20px; font-weight: 600">Dobrý den {$name}</p>
+
+
+<div class="content">
+    <p>Děkujeme Vám za vytvoření objednávky na našem webu <a href="https://www.mslabek.cz/">mslabek.cz</a>.
+    Jsme rádi, že jste si vstupenky zakoupili právě u nás.</p>
+    <p>Rádi bychom Vás požádali o uhrazení objednávky převodem na účet.</p>
+</div>
+<br>
+<br>
+    <div class="info">
+        <p>Částka k uhrazeni: {$price} Kč</p>
+        <p>Číslo účtu: 1764794028/3030</p>
+    </div>
+
+<br>
+<br>
+<p style="text-align: center; color: #ff8d1f; font-size: 15px">S přáním hezkého dne, tým Vip-tickets.</p>
+</div>
+</body>
+</html>

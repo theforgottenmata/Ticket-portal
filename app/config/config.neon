@@ -1,0 +1,76 @@
+
+#
+# Hlavní konfigurační soubor aplikace.
+#
+parameters:
+    	contactEmail: ticketproject2020@gmail.com # Kontaktní email
+
+
+
+# Nastavení aplikace.
+application:
+	errorPresenter: Error # Presenter pro zpracování chyb a výjimek v aplikaci.
+	catchExceptions: yes  # Vždy směrovat výjimky na ErrorPresenter (standartně jdou na laděnku).
+	mapping:              # Konfigurace vyhledávání cesty k prezenterům.
+	    Error: App\*Presenter
+	    *: App\*Module\Presenters\*Presenter
+
+
+# Nastavení expirace sessions v rámci celé aplikace.
+session:
+	expiration: 14 days
+
+
+# Konfigurace databázového připojení v rámci celé aplikace.
+database:
+	dsn: 'mysql:host=127.0.0.1;dbname=redakcni' # Typ, adresa a název databáze
+	user: root   # Uživatelské jméno
+	password: martinslabek # Heslo
+	options:
+		lazy: yes
+
+#database:
+#	dsn: 'mysql:localhost=sql.endora.cz;dbname=redak' # Typ, adresa a název databáze
+#	user: martinslabekk   # Uživatelské jméno
+#	password: Martin1 # Heslo
+#	options:
+#		lazy: yes
+
+
+# Nastavení výchozích chybových hlášek pro formuláře.
+
+# Nastavení společných uživatelských rolí v rámci celé aplikace (ACL).
+security:
+	roles:
+		guest:
+		member: [guest]
+		admin:
+
+
+# Nastavení služeb v rámci celé aplikace.
+services:
+	router: App\RouterFactory::createRouter # Nastavení služby routeru aplikace.
+	authenticator: App\Model\UserManager    # Nastavení služby pro přihlašování do aplikace.
+	security.authorizator:                  # Nastavení služby pro opravní uživatelů aplikace (ACL).
+	    setup:
+	        # Zdroje aplikace.
+	            - addResource(Error)
+
+
+
+	# Definice továren dále přístupných pomocí DI.
+	- App\Forms\FormFactory
+	- App\Forms\SignInFormFactory
+	- App\Forms\SignUpFormFactory
+	- App\Model\ActionManager
+	- App\Model\OrderManager
+	- App\Presenters\ContactPresenter(%contactEmail%)
+
+	- App\Presenters\OrderPresenter(%contactEmail%)
+
+
+
+
+# Propojení s dalšími konfiguračními soubory.
+includes:
+	- ../Backend/config/config.neon # Načtení konfigurace z Backend.

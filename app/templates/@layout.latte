@@ -1,0 +1,153 @@
+
+<!doctype html>
+<html lang="cs">
+<head>
+    <title>Vip-tickets: {include title}</title>
+    <meta charset="utf-8">
+
+    <!-- fonts -->
+    {block fonts}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans|Paytone+One&display=swap" rel="stylesheet">
+    <!-- fonts -->
+
+
+    {block css}
+        <link rel="shortcut icon" href="/www/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="/www/favicon.ico" type="image/x-icon">
+
+
+        <link href="https://fonts.googleapis.com/css?family=Cinzel:700&display=swap" rel="stylesheet">        <link rel="stylesheet" href="/www/fonts/ionicons/css/ionicons.min.css">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800" rel="stylesheet">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="{$basePath}/www/css/bootstrap.css">
+        <link rel="stylesheet" href="{$basePath}/www/css/fontawesome.min.css">
+
+        <link rel="stylesheet" href="{$basePath}/www/css/owl.carousel.min.css">
+        <link href="{$basePath}/www/dist/aos.css" rel="stylesheet">
+        <link rel="stylesheet" href="{$basePath}/www/css/ind.css">
+    {/block}
+
+</head>
+<body>
+
+
+<div class="topnav fixed-top" id="myTopnav">
+    <div class="logo">
+        <a n:href=:Homepage:default class="logoFont">VIP tickets</a>
+    </div>
+    <a n:href=:Action:list>Akce</a>
+    <a n:href=:Contact:default>Kontakt</a>
+    <a n:href=:Backend:Administration:login class="log"><i class="fa fa-user"></i></i></a>
+
+
+
+</div>
+<div class="flash">
+    <p n:foreach="$flashes as $flash" class="message">{$flash->message}</p>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div>
+{include content}
+</div>
+
+<!-- Footer -->
+<footer>
+
+    <div class="footer-limiter">
+
+        <div class="footer-right">
+
+
+            <a href="https://www.linkedin.com/in/martin-sl%C3%A1bek-566aab182/"><i class="fa fa-linkedin-in"></i></a>
+
+        </div>
+
+        <div class="footer-left">
+
+            <p class="footer-links logoFont">VIP-tickets</p>
+
+            <p>Martin Slábek © 2020</p>
+        </div>
+
+    </div>
+
+</footer>
+<!-- Footer -->
+{block script}
+    <script src="https://nette.github.io/resources/js/netteForms.min.js"></script>
+
+    <script src="/www/dist/aos.js"></script>
+    <script src="/www/js/jquery-3.2.1.min.js"></script>
+    <script src="/www/js/owl.carousel.min.js"></script>
+    <script src="/www/js/main.js"></script>
+    <script>
+        $(function() {
+            AOS.init();
+        });
+    </script>
+
+    <script src="{$basePath}/www/js/main.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Handler for .ready() called.
+            $('html, body').animate({
+                scrollTop: $('#what').offset().top
+            }, 'slow');
+        });
+    </script>
+    <script>
+        $(function () {
+            $('#myTab li:last-child a').tab('show')
+        })
+    </script>
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav") {
+                x.className += " responsive";
+            } else {
+                x.className = "topnav";
+            }
+        }
+    </script>
+
+
+{/block}
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

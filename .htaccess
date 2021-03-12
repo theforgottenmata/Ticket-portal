@@ -1,0 +1,16 @@
+RewriteEngine On
+RewriteCond %{REQUEST_URI} !^www/
+RewriteCond %{REQUEST_URI} !^/www/
+RewriteCond %{DOCUMENT_ROOT}/www -d
+RewriteRule (.*) www/$1 [DPI]
+
+
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+
+RewriteCond %{HTTP_USER_AGENT} !(BlackBerry)
+
+RewriteCond %{HTTP_USER_AGENT} !(Windows\sNT\s5\.[12])
+
+RewriteCond %{HTTP_HOST} ^(www\.)?mslabek.cz
+
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L]

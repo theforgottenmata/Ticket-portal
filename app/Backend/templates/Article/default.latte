@@ -1,0 +1,49 @@
+
+{block title}{$article->name}{/block}
+
+
+
+    {block content}
+
+
+
+        <div  style="text-align: center; padding: 50px; margin-top: -100px">
+
+
+            <div class="row">
+                <div class="item"> {$article->name}</div>
+            </div>
+            <div class="row">
+                <div class="item"> {$article->date|date:'%d.%m.%Y'} | {$article->time}</div>
+            </div>
+
+            <div class="row">
+                <div class="item" style="word-wrap: break-word">{$article->content}</div> <!-- noescape-->
+            </div>
+            <div class="row" style="display: inline-block; width: 350px">
+                <div class="item">
+                    <img style="width: 100%; " src="../../../../www/{$article->img}" >
+                </div>
+            </div>
+            <div class="row">
+                <div class="item">{$article->price}Kč</div>
+            </div>
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+        {/block}

@@ -1,0 +1,9 @@
+
+
+#
+# Lokální konfigurační soubor aplikace.
+#
+parameters:
+
+
+# Zde se uvádějí nastavení specifická pro dané prostředí např. přihlašovací údaje k lokální databázi.

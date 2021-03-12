@@ -1,0 +1,104 @@
+{block title}{$order->name}{/block}
+
+{block content}
+    <style>
+
+
+
+
+
+    </style>
+
+
+
+<!-- END slider -->
+
+    <div style="margin-top:  80px;padding: 100px; text-align: center">
+        <h1 style="text-transform: uppercase">{$order->name}</h1>
+        <hr style="width: 200px; border-bottom: 1px solid black">
+    </div>
+
+<hr>
+
+
+
+
+
+    <div class="container" style="padding-bottom: 300px">
+
+        <div class="row testik">
+            <div class="column col_left" style="text-align: right">
+                <ul>
+                    <li>Představení :</li>
+                    <li>Místo :</li>
+                    <li>Datum :</li>
+                    <li>Čas :</li>
+                    <br>
+                    <li>Co je v ceně vstupenky :</li>
+
+
+                </ul>
+            </div>
+            <div class="column col_right" >
+                <ul>
+                    <li>{$order->name}</li>
+                    <li>O2 ARENA Prague, Ocelarska 460/2 , 190 00 Praha 9</li>
+                    <li> {$order->date|date:'%d.%m.%Y'}</li>
+                    <li>{$order->time}</li>
+                    <br>
+                    <div class="ods">
+                        <li>VIP Sezení v 2.patře</li>
+                        <li>Neomezený teplý a studený catering</li>
+                        <li>Neomezené alkoholické a nealkoholické nápoje</li>
+                        <li>VIP vstup 2 hodiny před začátkem akce</li>
+                        <li>VIP šatna</li>
+                        <li>VIP garáž</li>
+                    </div>
+
+
+
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+
+        {if $order->count < 1 }
+
+            <p style="color: red; text-align: center; font-size: 40px;margin-top: 30px">Není skladem</p>
+        {else}
+            <form n:name=orderForm class=form style="width: 400px" >
+                <div>
+                <div style="background-color: salmon; padding: 1px;" n:if="$form->ownErrors" n:foreach="$form->ownErrors as $error">
+                    <p style="text-align: center">{$error}</p>
+                </div>
+
+                <input n:name=order_article  value={$order->id}>
+                    <input n:name=price value={$order->price}>
+
+
+                    <input n:name=name type="text" id="input-name" placeholder="Jméno*"required>
+
+                <input n:name=surname type="text" id="input-surname" placeholder="Příjmení*" required>
+                <input n:name=mail type="email" id="input-email" placeholder="Email*" required>
+                <input n:name=phone type="text" id="input-phone" minlength="9" placeholder="Tel.číslo: 608777608*">
+                <input n:name=address type="text" id="input-address" placeholder="Adresa*" required>
+                <input n:name=city type="text" id="input-city" placeholder="Město*" required>
+                <input n:name=zip_code type="number" id="input-zip" placeholder="PSČ*" required>
+                <select style="text-align-last:center" n:name=country required></select>
+                <textarea  n:name=message type="textarea" id="input-message" placeholder="Poznámka"></textarea>
+
+
+                <input n:name=submit type="submit" value="Odeslat" id="input-submit">
+                </div>
+            </form>
+        {/if}
+
+
+    </div>
+
+{/block}
+
